@@ -28,30 +28,33 @@ type Rating = {
 export type MovieDetailResponseType = {
   Title: string;
   Year: string;
-  Rated: string | "N/A";
+  Rated: string | 'N/A';
   Released: string;
   Runtime: string;
   Genre: string;
-  Director: string | "N/A";
-  Writer: string | "N/A";
+  Director: string | 'N/A';
+  Writer: string | 'N/A';
   Actors: string;
   Plot: string;
   Language: string;
   Country: string;
-  Awards: string | "N/A";
+  Awards: string | 'N/A';
   Poster: string;
   Ratings: Rating[];
-  Metascore: string | "N/A";
+  Metascore: string | 'N/A';
   imdbRating: string;
   imdbVotes: string;
   imdbID: string;
   Type: string;
-  DVD: string | "N/A";
-  BoxOffice: string | "N/A";
-  Production: string | "N/A";
-  Website: string | "N/A";
-  Response: "True" | "False";
-  "Error": "Incorrect IMDb ID." | "Movie not found!" | string;
+  DVD: string | 'N/A';
+  BoxOffice: string | 'N/A';
+  Production: string | 'N/A';
+  Website: string | 'N/A';
+  Response: 'True' | 'False';
+  Error: 'Incorrect IMDb ID.' | 'Movie not found!' | string;
 };
 
-export type MoveDetailType = Omit<MovieDetailResponseType, "Response" | "Error">;
+export type MoveDetailType = Omit<
+  MovieDetailResponseType,
+  'Response' | 'Error'
+>;

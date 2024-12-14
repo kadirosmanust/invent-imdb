@@ -1,4 +1,4 @@
-import { Pagination as AntdPagination } from "antd";
+import { Pagination as AntdPagination } from 'antd';
 
 type PaginationProps = {
   currentPage?: number;
@@ -8,7 +8,7 @@ type PaginationProps = {
 };
 
 const Pagination = ({
-  currentPage=1,
+  currentPage = 1,
   totalSize,
   pageSize = 10,
   onChange,

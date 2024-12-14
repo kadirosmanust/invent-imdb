@@ -1,0 +1,40 @@
+
+$violet-50: #f5f3ff;
+$violet-100: #ede9fe;
+$violet-200: #ddd6fe;
+$violet-300: #c4b5fd;
+$violet-400: #a78bfa;
+$violet-500: #8b5cf6;  
+$violet-600: #7c3aed;
+$violet-700: #6d28d9;
+$violet-800: #5b21b6;
+$violet-900: #4c1d95;
+
+$neutral-400: #a3a3a3;
+// Semantic Colors
+$primary: $violet-500;
+$primary-light: $violet-400;
+$primary-lighter: $violet-300;
+$primary-dark: $violet-600;
+$primary-darker: $violet-700;
+
+// Background Colors
+$bg-primary: $violet-50;
+$bg-secondary: $violet-100;
+$bg-tertiary: $violet-200;
+
+// Text Colors
+$text-primary: $violet-900;
+$text-secondary: $violet-700;
+$text-tertiary: $violet-500;
+
+// Border Colors
+$border-light: $violet-200;
+$border-default: $violet-300;
+$border-dark: $violet-400;
+
+// States
+$hover: $violet-600;
+$active: $violet-700;
+$focus: $violet-400;
+$disabled: $violet-200;

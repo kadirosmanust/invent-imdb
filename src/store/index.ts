@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
+import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch, useSelector } from 'react-redux';
 
-import movieReducer from "./reducers/movie";
+import movieReducer from './reducers/movie';
 
 export const store = configureStore({
   reducer: {

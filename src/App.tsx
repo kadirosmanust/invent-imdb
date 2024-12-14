@@ -1,20 +1,21 @@
-import { Suspense } from "react";
+import './App.scss';
 
-import "./App.scss";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ROUTES } from "./constants/routes";
+import { Suspense } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-const MAPPED_ROUTES = ROUTES.map((r) => {
+import { ROUTES } from './constants/routes';
+
+const MAPPED_ROUTES = ROUTES.map(r => {
   return {
     element: <Suspense fallback={<div>Loading...</div>}>{r.element}</Suspense>,
     path: r.path,
     index: r.index,
   };
 });
-  
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     children: MAPPED_ROUTES,
   },
 ]);

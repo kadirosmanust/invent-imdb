@@ -1,4 +1,8 @@
-import axios, {  AxiosResponse, AxiosError, InternalAxiosRequestConfig } from 'axios';
+import axios, {
+  AxiosError,
+  AxiosResponse,
+  InternalAxiosRequestConfig,
+} from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: 'http://www.omdbapi.com/',
@@ -16,7 +20,7 @@ axiosInstance.interceptors.request.use(
   (error: AxiosError) => {
     console.error('Request Error:', error);
     return Promise.reject(error);
-  }
+  },
 );
 
 // Response interceptor
@@ -26,15 +30,18 @@ axiosInstance.interceptors.response.use(
   },
   (error: AxiosError) => {
     if (error.response) {
-
-      console.error('Response Error:', error.response.status, error.response.data);
+      console.error(
+        'Response Error:',
+        error.response.status,
+        error.response.data,
+      );
     } else if (error.request) {
       console.error('No Response:', error.request);
     } else {
       console.error('Error:', error.message);
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default axiosInstance;

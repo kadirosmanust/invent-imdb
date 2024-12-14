@@ -1,0 +1,74 @@
+@use "../../styles/colors" as colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  gap:16px
+}
+
+.title {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  h1 {
+    font-size: 54px;
+    line-height: 1em;
+    font-weight: 700;
+    color: colors.$text-primary;
+    margin: 0;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    color: colors.$neutral-400;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 80%;
+  flex-grow: 1;
+
+  // media query for mobile devices
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+}
+
+.filter {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  flex-wrap: wrap;
+  input {
+    flex-grow: 1;
+    width: 50% !important;
+  }
+  @media (max-width: 768px) {
+    width: 95%;
+    input {
+      width: 100% !important;
+    }
+  }
+
+  :global(#mediaType) {
+    flex-shrink: 0 !important;
+  }
+  :global(.ant-picker) {
+    flex-grow: 1 !important;
+  }
+}

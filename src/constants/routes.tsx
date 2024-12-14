@@ -1,16 +1,17 @@
-import type { Route } from "@/types/route";
-import { LazyHome, LazyDetail } from "./lazyRoutes";
+import type { Route } from '@/types/route';
 
-export const ROUTES : Route[] = [
+import { LazyDetail, LazyHome } from './lazyRoutes';
+
+export const ROUTES: Route[] = [
   {
-    path: "/",
+    path: '/',
     index: true,
     element: <LazyHome />,
-    id: "HOME_PAGE",
+    id: 'HOME_PAGE',
   },
   {
-    path: "/media/:imdbID",
+    path: '/media/:imdbID',
     element: <LazyDetail />,
-    id: "MEDIA_PAGE",
-  }
+    id: 'MEDIA_PAGE',
+  },
 ];

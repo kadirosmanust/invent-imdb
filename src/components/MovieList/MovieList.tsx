@@ -1,6 +1,6 @@
-import { LoadingOutlined } from '@ant-design/icons';
-import { Empty, Spin } from 'antd';
-import { useMemo } from 'react';
+import { LinkOutlined } from '@ant-design/icons';
+import { Button, Table } from 'antd';
+import { useNavigate } from 'react-router';
 
 import useSetSearchParams from '@/hooks/useSetSearchParams';
 import { useAppSelector } from '@/store';
@@ -10,15 +10,13 @@ import {
   getTotalResultsSelector,
 } from '@/store/reducers/movie';
 
-import MovieListItem from '../MovieListItem';
-import Pagination from '../Pagination';
 import styles from './MovieList.module.scss';
 
 const MovieList = () => {
   const moviesApi = useAppSelector(getMoviesApiSelector);
   const movies = useAppSelector(getMoviesSelector);
   const totalResults = useAppSelector(getTotalResultsSelector);
-
+  const navigate = useNavigate();
   const { updateSearchParams, searchParams } = useSetSearchParams();
 
   const page = searchParams.get('page') || '1';
@@ -27,35 +25,49 @@ const MovieList = () => {
     updateSearchParams('page', page.toString());
   };
 
-  const mappedMovies = useMemo(() => {
-    if (!movies || movies.length < 1)
-      return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
-
-    return movies.map((movie, index) => (
-      <MovieListItem
-        key={`${movie.imdbID}-${index}`}
-        imdbID={movie.imdbID}
-        title={movie.Title}
-        year={movie.Year}
-        type={movie.Type}
-        poster={movie.Poster}
-      />
-    ));
-  }, [movies]);
-
   return (
     <div className={styles.container}>
-      <div className={styles.listContainer}>
-        {moviesApi.isLoading ? (
-          <Spin indicator={<LoadingOutlined style={{ fontSize: 54 }} spin />} />
-        ) : (
-          mappedMovies
-        )}
-      </div>
-      <Pagination
-        currentPage={parseInt(page) || 1}
-        onChange={onPageChange}
-        totalSize={totalResults}
+      <Table
+        dataSource={movies}
+        loading={moviesApi.isLoading}
+        rowKey={record => record.imdbID}
+        style={{ width: '100%' }}
+        scroll={{ x: 'max-content' }}
+        columns={[
+          {
+            title: 'Title',
+            dataIndex: 'Title',
+            key: 'Title',
+            render: (text, record) => {
+              return (
+                <Button
+                  type="link"
+                  onClick={() => navigate(`/media/${record.imdbID}`)}
+                >
+                  <LinkOutlined />
+                  {text}
+                </Button>
+              );
+            },
+          },
+          {
+            title: 'Year',
+            dataIndex: 'Year',
+            key: 'Year',
+          },
+          {
+            title: 'IMDb ID',
+            dataIndex: 'imdbID',
+            key: 'imdbID',
+          },
+        ]}
+        pagination={{
+          current: parseInt(page),
+          total: totalResults,
+          onChange: onPageChange,
+          showSizeChanger: false,
+          pageSize: 10,
+        }}
       />
     </div>
   );

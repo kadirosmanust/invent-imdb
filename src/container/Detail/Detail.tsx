@@ -78,7 +78,10 @@ const Detail = () => {
       </div>
     );
   }
-
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src =
+      'https://via.placeholder.com/300x450?text=Image+Not+Found';
+  };
   return (
     <div className={styles.container}>
       <button className={styles.backButton} onClick={handleGoBack}>
@@ -86,7 +89,11 @@ const Detail = () => {
       </button>
       <div className={styles.header}>
         <div className={styles.poster}>
-          <img src={movieDetail.Poster} alt={movieDetail.Title} />
+          <img
+            onError={handleImageError}
+            src={movieDetail.Poster}
+            alt={movieDetail.Title}
+          />
         </div>
         <div className={styles.info}>
           <h1>{movieDetail.Title}</h1>

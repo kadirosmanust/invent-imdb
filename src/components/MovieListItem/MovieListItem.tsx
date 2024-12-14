@@ -30,7 +30,11 @@ const MovieListItem: React.FC<MovieListItemProps> = ({
   };
 
   return (
-    <div className={styles.movieItem} onClick={onDetailClick}>
+    <div
+      className={styles.movieItem}
+      data-testid={'movie-item'}
+      onClick={onDetailClick}
+    >
       <div className={styles.posterWrapper}>
         <img
           src={poster}

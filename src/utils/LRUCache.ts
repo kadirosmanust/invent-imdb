@@ -1,7 +1,7 @@
 type LRUCache<K, V> = {
-  get: (key: K) => V | undefined;
-  set: (key: K, value: V) => void;
-  delete: (key: K) => boolean;
+  get: (_key: K) => V | undefined;
+  set: (_key: K, _value: V) => void;
+  delete: (_key: K) => boolean;
 };
 
 const createLRUCache = <K, V>(maxCapacity: number): LRUCache<K, V> => {

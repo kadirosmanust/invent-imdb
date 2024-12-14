@@ -9,7 +9,7 @@ import { useAppDispatch } from '..';
 import { setMovieDetail, setMovieDetailApi } from '../reducers/movie';
 
 type useMovieListApiReturn = {
-  trigger: (imdbId: string) => void;
+  trigger: (_imdbId: string) => void;
 };
 
 const movieCache = createLRUCache<

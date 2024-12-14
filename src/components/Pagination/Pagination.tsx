@@ -4,7 +4,7 @@ type PaginationProps = {
   currentPage?: number;
   totalSize?: number;
   pageSize?: number;
-  onChange?: (page: number) => void;
+  onChange?: (_page: number) => void;
 };
 
 const Pagination = ({

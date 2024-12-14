@@ -19,11 +19,6 @@
   grid-template-columns: 300px 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-
   padding: 2rem;
   background: white;
   border-radius: 12px;
@@ -31,6 +26,8 @@
 
   @media (max-width: 768px) {
     padding: 1rem;
+    grid-template-columns: 1fr;
+
   }
 }
 

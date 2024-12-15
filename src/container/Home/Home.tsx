@@ -37,7 +37,7 @@ const Home = () => {
           page: parseInt(page),
         });
       }
-    } else {
+    } else if (debouncedValue) {
       trigger({
         mediaType: type,
         searchText: debouncedValue,
